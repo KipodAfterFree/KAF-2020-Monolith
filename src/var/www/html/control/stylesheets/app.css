@@ -1,0 +1,20 @@
+body {
+    background-color: #2fbfc5;
+}
+
+.list {
+    max-height: 70vh;
+    min-height: 70vh;
+    height: 70vh;
+    justify-content: start;
+    overflow-y: scroll;
+}
+
+.list > div {
+    margin: 1vh;
+}
+
+[row] > * {
+    width: 100%;
+    align-self: stretch;
+}

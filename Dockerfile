@@ -7,3 +7,5 @@ FROM php:7.4.1-apache
 #RUN apt-get -y install apache2 php
 # Copy
 COPY src /
+# Chmod
+RUN chmod 777 -R /var/www/html

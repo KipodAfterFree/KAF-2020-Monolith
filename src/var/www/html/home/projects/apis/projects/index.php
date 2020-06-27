@@ -14,16 +14,18 @@ Base::handle(function ($action, $parameters) {
         $array = array();
 
         foreach (scandir($directory) as $project) {
-            foreach (scandir($directory . DIRECTORY_SEPARATOR . $project) as $file) {
-                if ((strlen($extension) === 0 || substr($file, -strlen($extension)) === $extension)) {
+            if (is_dir($directory . DIRECTORY_SEPARATOR . $project)) {
+                foreach (scandir($directory . DIRECTORY_SEPARATOR . $project) as $file) {
+                    if ((strlen($extension) === 0 || substr($file, -strlen($extension)) === $extension)) {
 
-                    $object = new stdClass();
+                        $object = new stdClass();
 
-                    $object->icon = $project . DIRECTORY_SEPARATOR . $file;
-                    $object->project = $project;
-                    $object->description = file_get_contents($project . DIRECTORY_SEPARATOR . ".describe");
+                        $object->icon = $project . DIRECTORY_SEPARATOR . $file;
+                        $object->project = $project;
+                        $object->description = file_get_contents($directory . DIRECTORY_SEPARATOR . $project . DIRECTORY_SEPARATOR . ".describe");
 
-                    array_push($array, $object);
+                        array_push($array, $object);
+                    }
                 }
             }
         }
