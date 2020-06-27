@@ -1,0 +1,36 @@
+/**
+ * Copyright (c) 2019 Nadav Tasher
+ * https://github.com/NadavTasher/BaseTemplate/
+ **/
+
+:root {
+    --bright: #DDDDEE;
+    --dark: #9999AA;
+    --theme: #78b3c1;
+    --text: white;
+}
+
+body {
+    /* Size */
+    max-width: 460px;
+    /* Background */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#icons {
+    align-items: center;
+}
+
+#icons > img {
+    /* Sizing */
+    max-height: 5vh !important;
+    max-width: 10vw !important;
+    width: auto;
+    /* Alignment */
+    margin: 2vh 2vw;
+}
