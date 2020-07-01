@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Confidential."
+AuthUserFile /var/www/html/work/files/.htpasswd
+Require valid-user

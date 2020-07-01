@@ -1,4 +1,1 @@
-AuthType Basic
-AuthName "Confidential."
-AuthUserFile /var/www/html/work/.htpasswd
-Require valid-user
+RedirectMatch ^/work/$ /work/files/
