@@ -1,6 +1,6 @@
 <?php
 $accountsdir='/var/www/html/robotics/private/accounts';
-$fileUrl='http://'.$_SERVER['REMOTE_HOST'].'robotics/sign/login.php';
+$fileUrl='http://'.$_SERVER['HTTP_HOST'].'robotics/sign/login.php';
 $defaultClient='server_verification_login';
 if(isset($_POST['login']) && isset($_POST['key'])&&isset($_POST['action'])){
   $accountname=$_POST['login'];
