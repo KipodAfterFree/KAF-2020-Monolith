@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2019 Nadav Tasher
+ https://github.com/NadavTasher/Template/
+-->
+<html row lang="en">
+<head>
+    <!-- Charset -->
+    <meta charset="UTF-8"/>
+    <!-- App Description -->
+    <meta name="description" content="Server gateway for the monolith challenge.">
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, minimal-ui"/>
+    <!-- Mobile -->
+    <meta name="theme-color" content="#FFFFFF"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Mobile Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-title" content="Server Gateway"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <!-- Icons -->
+    <link rel="icon" href="resources/images/icons/icon.png"/>
+    <link rel="apple-touch-icon" href="resources/images/icons/icon_apple.png"/>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="sources/app.css"/>
+    <link rel="stylesheet" href="resources/styles/style.css"/>
+    <!-- Scripts -->
+    <script type="text/javascript" src="sources/app.js"></script>
+    <script type="text/javascript" src="modules/module.js"></script>
+    <!-- App Title -->
+    <title>Server Gateway</title>
+    <!-- No Script -->
+    <noscript></noscript>
+    <!-- Additional -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body onload="load()" column>
+<p large center id="loading">Loading...</p>
+<div id="home" hidden column>
+    <div column>
+        <p large left>Server Gateway</p>
+        <p small left>We need the following information in order to provision a server for you.</p>
+    </div>
+    <div column>
+        <input small left id="input-name" placeholder="Team name" type="text"/>
+        <input small left id="input-email" placeholder="Email address" type="email"/>
+    </div>
+    <div column>
+        <button small onclick="UI.view('solve');">Continue</button>
+    </div>
+</div>
+<div id="solve" hidden column>
+    <div column>
+        <p large left>Server Gateway</p>
+        <p small left>Please solve the following reCAPTCHA.</p>
+    </div>
+    <div column>
+        <div class="g-recaptcha" style="align-items: center; padding: 2vh;" data-callback="provision" data-sitekey="6LdZarEZAAAAAHLFlWaPCJj8N0QBpcCZ1k4nfXdh"></div>
+    </div>
+</div>
+</body>
+</html>
