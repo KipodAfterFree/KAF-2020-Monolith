@@ -91,7 +91,7 @@ class Authenticate
      */
     public static function validate($token)
     {
-        // Authenticate the user using tokens
+        // Validate using authority
         return self::$authority->validate($token);
     }
 

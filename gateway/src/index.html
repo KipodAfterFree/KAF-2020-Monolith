@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--
- Copyright (c) 2019 Nadav Tasher
- https://github.com/NadavTasher/Template/
+ Copyright (c) 2020 KipodAfterFree
+ https://github.com/KipodAfterFree/WebTemplate/
 -->
 <html row lang="en">
 <head>
     <!-- Charset -->
     <meta charset="UTF-8"/>
     <!-- App Description -->
-    <meta name="description" content="Server gateway for the monolith challenge.">
+    <meta name="description" content="Provision a Monolith instance for your team.">
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, minimal-ui"/>
     <!-- Mobile -->
@@ -16,47 +16,66 @@
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Mobile Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-title" content="Server Gateway"/>
+    <meta name="apple-mobile-web-app-title" content="Monolith // Provision"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <!-- Icons -->
-    <link rel="icon" href="resources/images/icons/icon.png"/>
-    <link rel="apple-touch-icon" href="resources/images/icons/icon_apple.png"/>
+    <link rel="icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIMSURBVDiN1ZBLSJRRAIW/e//HzD+aj8axkcxHTTULi6LSIhMJ7UFQm5IgiIrMSozahkSbWrRwUaCBBLVoJYyrNmYQFdagWKHYgwpFS9IyR52YGef+t5UtgqFd0Lc8nPMtDvz3iL8Vrrbsz1nt13W2IVPz8ym78UZvJKPgCjROQn8nvFrKItcOdiA467UN0kqlE4uqe3Ym0Xqm7dF7ALlUbIWmc9DWALc3QhZAdVV4y3ejcI8yPIl3EzG0EKbPax0JBHw97S21dQBmA+w8AddroDoLZBzKSqExfKh25cmj9cfGPk8VrQqvY3ThDYvqG64rcRyztCiYsw/olYMwYIDtgHwMw7fgcDHcmx764AgpAk3HDxBaU4Lv5ziOZWJZkkRCYVjUaBDGDKhceNkHA6fhfBRGByBRuWn93thcfEXd7q35jtfD7MQICEgmFYYp0MjsSFFOpwHQD5NPYRBwlz7xB5eP5ef6TglhLFsbKuZ19LmrQWitMaRECDzxVLLr94l/8uTF8NS2ygqfx2sBYHtMrZRLdpZNWmlAf3UX+WFmEoTKghW7tm/IKy8JAqBdrS1TEo+n8HpMYvPJ7ksdzz5lFBQG/OXRwbcTFy633wmHiqt2lMp6WygMUyYnpxfuZm/uaQEwMgoKCuTHsS9DDx5Gb/b1j0Ty/IHCYJ7smoulL447yfvNzaMq0/bf8guhZrKd/Nc24AAAAABJRU5ErkJggg=="/>
+    <link rel="apple-touch-icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIMSURBVDiN1ZBLSJRRAIW/e//HzD+aj8axkcxHTTULi6LSIhMJ7UFQm5IgiIrMSozahkSbWrRwUaCBBLVoJYyrNmYQFdagWKHYgwpFS9IyR52YGef+t5UtgqFd0Lc8nPMtDvz3iL8Vrrbsz1nt13W2IVPz8ym78UZvJKPgCjROQn8nvFrKItcOdiA467UN0kqlE4uqe3Ym0Xqm7dF7ALlUbIWmc9DWALc3QhZAdVV4y3ejcI8yPIl3EzG0EKbPax0JBHw97S21dQBmA+w8AddroDoLZBzKSqExfKh25cmj9cfGPk8VrQqvY3ThDYvqG64rcRyztCiYsw/olYMwYIDtgHwMw7fgcDHcmx764AgpAk3HDxBaU4Lv5ziOZWJZkkRCYVjUaBDGDKhceNkHA6fhfBRGByBRuWn93thcfEXd7q35jtfD7MQICEgmFYYp0MjsSFFOpwHQD5NPYRBwlz7xB5eP5ef6TglhLFsbKuZ19LmrQWitMaRECDzxVLLr94l/8uTF8NS2ygqfx2sBYHtMrZRLdpZNWmlAf3UX+WFmEoTKghW7tm/IKy8JAqBdrS1TEo+n8HpMYvPJ7ksdzz5lFBQG/OXRwbcTFy633wmHiqt2lMp6WygMUyYnpxfuZm/uaQEwMgoKCuTHsS9DDx5Gb/b1j0Ty/IHCYJ7smoulL447yfvNzaMq0/bf8guhZrKd/Nc24AAAAABJRU5ErkJggg=="/>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="sources/app.css"/>
-    <link rel="stylesheet" href="resources/styles/style.css"/>
+    <link rel="stylesheet" href="https://kaf.sh/WebTemplate/template/src/web/resources/styles/style.css"/>
     <!-- Scripts -->
-    <script type="text/javascript" src="sources/app.js"></script>
-    <script type="text/javascript" src="modules/module.js"></script>
+    <script type="text/javascript" src="https://kaf.sh/WebTemplate/template/src/web/modules/module.js"></script>
     <!-- App Title -->
-    <title>Server Gateway</title>
+    <title>Monolith // Provision</title>
     <!-- No Script -->
     <noscript></noscript>
+    <!-- App Sources -->
+    <style type="text/css">
+        :root {
+            --theme: #FFFFFF;
+            --passive: #333344;
+            --active: #777788;
+            --coaster: #DDDDEE;
+        }
+
+        body {
+            max-width: 460px;
+        }
+    </style>
+    <script type="text/javascript">
+        function load() {
+            Module.load("Template:UI", "Global:reCAPTCHA", "Global:Popup");
+        }
+
+        function provision(token) {
+            API.call("provision", "provision", {
+                team: UI.find("team").value,
+                email: UI.find("email").value,
+
+            })
+        }
+    </script>
     <!-- Additional -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body onload="load()" column>
-<p large center id="loading">Loading...</p>
-<div id="home" hidden column>
-    <div column>
-        <p large left>Server Gateway</p>
-        <p small left>We need the following information in order to provision a server for you.</p>
-    </div>
-    <div column>
-        <input small left id="input-name" placeholder="Team name" type="text"/>
-        <input small left id="input-email" placeholder="Email address" type="email"/>
-    </div>
-    <div column>
-        <button small onclick="UI.view('solve');">Continue</button>
-    </div>
+<div id="disclaimer">
+    <p huge left>Disclaimer</p>
+    <p medium left>This provisioner is not a part of the challenge, and attacking it will not yield any flags.</p>
+    <button medium left onclick="UI.view('provision')">I understand.</button>
 </div>
-<div id="solve" hidden column>
-    <div column>
-        <p large left>Server Gateway</p>
-        <p small left>Please solve the following reCAPTCHA.</p>
-    </div>
-    <div column>
-        <div class="g-recaptcha" style="align-items: center; padding: 2vh;" data-callback="provision" data-sitekey="6LdZarEZAAAAAHLFlWaPCJj8N0QBpcCZ1k4nfXdh"></div>
-    </div>
+<div id="provision" hidden>
+    <p large left>Provision // Information</p>
+    <p small left>Please fill in your team's information.</p>
+    <input medium center id="team" type="text" placeholder="Your team's name"/>
+    <input medium center id="email" type="email" placeholder="A valid Gmail address"/>
+    <button medium left onclick="UI.view('recaptcha')">Continue</button>
+</div>
+<div id="recaptcha" hidden>
+    <p large left>Provision // Bot deterrence</p>
+    <p small left>Please solve this difficult math problem.</p>
+    <div class="g-recaptcha" style="align-items: center; padding: 2vh;" data-callback="provision" data-sitekey="6LdZarEZAAAAAHLFlWaPCJj8N0QBpcCZ1k4nfXdh"></div>
 </div>
 </body>
 </html>
