@@ -50,11 +50,12 @@
         }
 
         function provision(token) {
-            API.call("provision", "provision", {
-                team: UI.find("team").value,
-                email: UI.find("email").value,
-
-            })
+            // API.call("provision", "provision", {
+            //     team: UI.find("team").value,
+            //     email: UI.find("email").value,
+            //
+            // });
+            Popup.toast("Check your email for a link", 0);
         }
     </script>
     <!-- Additional -->
@@ -69,7 +70,7 @@
     <p large left>Provision // Information</p>
     <p small left>Please fill in your team's information.</p>
     <input medium center id="team" type="text" placeholder="Your team's name"/>
-    <input medium center id="email" type="email" placeholder="A valid Gmail address"/>
+<!--    <input medium center id="email" type="email" placeholder="A valid Gmail address"/>-->
     <button medium left onclick="UI.view('recaptcha')">Continue</button>
 </div>
 <div id="recaptcha" hidden>
