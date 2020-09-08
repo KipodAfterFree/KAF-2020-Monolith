@@ -1,5 +1,6 @@
 {
   "mailman@localhost": {
+    "enable": true,
     "name": "Mailman",
     "title": "Mr",
     "contents": "This is your daily reminder to drink more water"
