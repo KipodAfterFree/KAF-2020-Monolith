@@ -1,0 +1,3 @@
+#!/bin/bash
+
+php /var/www/html/work/service/private/mail.php

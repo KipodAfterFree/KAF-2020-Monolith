@@ -6,7 +6,7 @@ $namer = "group";
 $pushesFile = 'pushes.json';
 $filterKey = 'filter';
 $passwordKey = 'key';
-$password = 'nadavsmessages';
+$password = 'shukypush';
 
 // Setup JSON
 $json = json_decode(file_get_contents($pushesFile));
