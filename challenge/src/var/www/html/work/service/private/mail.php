@@ -6,7 +6,7 @@
 
 // Scan
 
-$recs = scandir("recipients");
+$recs = scandir(__DIR__ . "/recipients");
 
 $recs = array_slice($recs, 2);
 
@@ -14,7 +14,7 @@ $recs = array_slice($recs, 2);
 
 foreach ($recs as $hexfile) {
     $email = hex2bin(str_replace(".json", "", $hexfile));
-    $object = json_decode(file_get_contents("recipients/" . $hexfile));
+    $object = json_decode(file_get_contents(__DIR__ . "/recipients/" . $hexfile));
     $subject = escapeshellarg("Hello, " . $object->title . ". " . $object->name);
     $content = escapeshellarg($object->contents);
     if ($object->enable)

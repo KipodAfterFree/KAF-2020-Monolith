@@ -24,16 +24,16 @@ $email = $json->email;
 if (isset($json->check))
     $validator = $json->check;
 
-if (file_get_contents($validator . "?email=$email") === "OK") {
+if (file_get_contents($validator . "?email=" . urlencode($email)) === "OK") {
     $o = new stdClass();
     $o->enable = false;
     $o->name = $name;
     $o->title = $title;
     $o->contents = "Hello from Automail solutions!";
-    if (!file_exists("../private/recipients/" . bin2hex($email) . ".json")) {
-        file_put_contents("../private/recipients/" . bin2hex($email) . ".json", json_encode($o));
+    if (!file_exists(__DIR__ . "/../private/recipients/" . bin2hex($email) . ".json")) {
+        file_put_contents(__DIR__ . "/../private/recipients/" . bin2hex($email) . ".json", json_encode($o));
         die("Sign up ok but not enable, please verify");
-    }else{
+    } else {
         die("Error already exists");
     }
 }

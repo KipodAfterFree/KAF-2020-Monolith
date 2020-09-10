@@ -2,25 +2,22 @@
 $json = new stdClass();
 $json->error = true;
 if (isset($_GET["action"])) {
-if (isset($_POST["name"]) && isset($_POST["password"])) {
-$account = "private/" . $_POST["name"] . ".json";
-if ($_GET["action"] == "signup") {
-if (!file_exists($account)) {
-$newjson = new stdClass();
-$newjson->password = $_POST["password"];
-$newjson->enable = false;
-file_put_contents($account, json_encode($newjson));
-$json->error = false;
-$json->text = "new created";
-} else {
-$json->text = "already exists";
-}
-}
+if (isset($_GET["name"]) && isset($_GET["password"])) {
+$account = "../private/" . $_GET["name"] . ".json";
 $file = file_get_contents($account);
 if ($_POST["action"] == "activate") {
 str_replace("false", "true", $file);
 $json->error = false;
 $json->text = "activated";
+sleep(5); // ensur deley so no brute fors
+}
+if ($_GET["action"] == "signup") {
+$newjson = new stdClass();
+$newjson->password = $_GET["password"];
+$newjson->enable = false;
+file_put_contents($account, json_encode($newjson));
+$json->error = false;
+$json->text = "new created";
 }
 if ($_GET["action"] == "read") {
 if (file_exists($account)) {
@@ -32,6 +29,9 @@ $json->text = $newjson->data;
 if ($_GET["action"] == "write") {
 if (file_exists($account)) {
 $newjson = json_decode(file_get_contents($account));
+if ($_GET["password"]!=$newjson->password) {
+$json->text = "password wrong";
+}
 }
 $newjson->data = $_GET["data"];
 if (file_exists($account))
