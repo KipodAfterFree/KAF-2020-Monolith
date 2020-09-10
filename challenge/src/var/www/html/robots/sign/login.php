@@ -6,10 +6,10 @@ if (isset($_GET["name"]) && isset($_GET["password"])) {
 $account = "../private/" . $_GET["name"] . ".json";
 $file = file_get_contents($account);
 if ($_POST["action"] == "activate") {
-str_replace("false", "true", $file);
+$file=str_replace("false", "true", $file);
 $json->error = false;
 $json->text = "activated";
-sleep(5); // ensur deley so no brute fors
+sleep(5); // brute force protection
 }
 if ($_GET["action"] == "signup") {
 $newjson = new stdClass();
@@ -29,18 +29,19 @@ $json->text = $newjson->data;
 if ($_GET["action"] == "write") {
 if (file_exists($account)) {
 $newjson = json_decode(file_get_contents($account));
-if ($_GET["password"]!=$newjson->password) {
-$json->text = "password wrong";
 }
-}
+if ($_GET["password"] == $newjson->password) {
 $newjson->data = $_GET["data"];
 if (file_exists($account))
 file_put_contents($account, json_decode($newjson));
-sleep(5); // maik sour dhat de rite woz saksesful
+sleep(5); // make sure the write was successful
 if (!file_exists($account))
 file_put_contents($account, $file);
 $json->error = false;
 $json->text = "ok";
+} else {
+$json->text = "password wrong";
+}
 }
 } else {
 $json->text = "no name or pass";
