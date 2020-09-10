@@ -4,7 +4,6 @@ RUN apt-get update
 RUN apt-get -y install ssh
 RUN apt-get -y install mailutils
 RUN apt-get -y install sudo
-RUN apt-get -y install supervisor
 # Create users
 RUN useradd -s /usr/sbin/nologin mailman
 # Copy

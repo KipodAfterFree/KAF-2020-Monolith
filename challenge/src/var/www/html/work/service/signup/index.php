@@ -25,14 +25,17 @@ if (isset($json->check))
     $validator = $json->check;
 
 if (file_get_contents($validator . "?email=$email") === "OK") {
-    $o = json_decode(file_get_contents("../private/recipients.json"));
-    $o->$email = new stdClass();
-    $o->$email->enable = false;
-    $o->$email->name = $name;
-    $o->$email->title = $title;
-    $o->$email->contents = "Hello from Automail solutions!";
-    file_put_contents("../private/recipients.json", json_encode($o));
-    die("Sign up ok but not enable, please verify");
+    $o = new stdClass();
+    $o->enable = false;
+    $o->name = $name;
+    $o->title = $title;
+    $o->contents = "Hello from Automail solutions!";
+    if (!file_exists("../private/recipients/" . bin2hex($email) . ".json")) {
+        file_put_contents("../private/recipients/" . bin2hex($email) . ".json", json_encode($o));
+        die("Sign up ok but not enable, please verify");
+    }else{
+        die("Error already exists");
+    }
 }
 
 die("Validation issue");

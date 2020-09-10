@@ -4,13 +4,17 @@
  * This script should be ran by cron, as mailman.
  */
 
-// Read
+// Scan
 
-$json = json_decode(file_get_contents(__DIR__ . "/recipients.json"));
+$recs = scandir("recipients");
+
+$recs = array_slice($recs, 2);
 
 // Loop
 
-foreach ($json as $email => $object) {
+foreach ($recs as $hexfile) {
+    $email = hex2bin(str_replace(".json", "", $hexfile));
+    $object = json_decode(file_get_contents("recipients/" . $hexfile));
     $subject = escapeshellarg("Hello, " . $object->title . ". " . $object->name);
     $content = escapeshellarg($object->contents);
     if ($object->enable)
