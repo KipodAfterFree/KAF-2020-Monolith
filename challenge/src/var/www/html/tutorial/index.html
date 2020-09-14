@@ -7,15 +7,15 @@
 <p>Install ubuntu server on a computer</p>
 <code>ubuntu.com</code>
 <p>Install programs:</p>
-<code>apt get -y install mailutils ssh php apache2 netcat</code>
+<code>apt-get -y install mailutils ssh php apache2 netcat</code>
 <p>Create user:</p>
 <code>useradd -s /usr/sbin/nologin mailman</code>
 <p>Create home:</p>
 <code>mkdir /home/mailman</code>
 <p>Install crontab: TODO</p>
 <p>Crucial! edit /etc/hosts and add:</p>
-<code>127.0.0.1 flag</code>
-<p>Test ssh to see if it works:</p>
+<code>YOUR_FLAG_SERVER_IP     flag</code>
+<p>Test ssh to see if it works (don't forget your private key):</p>
 <code>ssh mailman@flag</code>
 </body>
 </html>
