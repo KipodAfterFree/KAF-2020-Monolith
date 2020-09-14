@@ -2,3 +2,5 @@ AuthType Basic
 AuthName "Confidential."
 AuthUserFile /var/www/html/work/files/.htpasswd
 Require valid-user
+
+# Only allow admins to access index.html!
