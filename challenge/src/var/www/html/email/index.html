@@ -1,18 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+ Copyright (c) 2020 Shuky
+ https://github.com/KipodAfterFree
+-->
+<html row lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Email validator</title>
-    <script>
-        async function val() {
-            let a = await fetch("validate/?email="+encodeURIComponent(document.getElementById("email").value));
-            let b = await a.text();
-            alert(b);
+    <!-- Charset -->
+    <meta charset="UTF-8"/>
+
+    <!-- App Description -->
+    <meta name="description" content="Email validator enterprise edition">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, minimal-ui"/>
+
+    <!-- Mobile -->
+    <meta name="theme-color" content="#FFFFFF"/>
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Mobile Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-title" content="Email Validator"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <!-- Icons -->
+    <link rel="icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIMSURBVDiN1ZBLSJRRAIW/e//HzD+aj8axkcxHTTULi6LSIhMJ7UFQm5IgiIrMSozahkSbWrRwUaCBBLVoJYyrNmYQFdagWKHYgwpFS9IyR52YGef+t5UtgqFd0Lc8nPMtDvz3iL8Vrrbsz1nt13W2IVPz8ym78UZvJKPgCjROQn8nvFrKItcOdiA467UN0kqlE4uqe3Ym0Xqm7dF7ALlUbIWmc9DWALc3QhZAdVV4y3ejcI8yPIl3EzG0EKbPax0JBHw97S21dQBmA+w8AddroDoLZBzKSqExfKh25cmj9cfGPk8VrQqvY3ThDYvqG64rcRyztCiYsw/olYMwYIDtgHwMw7fgcDHcmx764AgpAk3HDxBaU4Lv5ziOZWJZkkRCYVjUaBDGDKhceNkHA6fhfBRGByBRuWn93thcfEXd7q35jtfD7MQICEgmFYYp0MjsSFFOpwHQD5NPYRBwlz7xB5eP5ef6TglhLFsbKuZ19LmrQWitMaRECDzxVLLr94l/8uTF8NS2ygqfx2sBYHtMrZRLdpZNWmlAf3UX+WFmEoTKghW7tm/IKy8JAqBdrS1TEo+n8HpMYvPJ7ksdzz5lFBQG/OXRwbcTFy633wmHiqt2lMp6WygMUyYnpxfuZm/uaQEwMgoKCuTHsS9DDx5Gb/b1j0Ty/IHCYJ7smoulL447yfvNzaMq0/bf8guhZrKd/Nc24AAAAABJRU5ErkJggg=="/>
+    <link rel="apple-touch-icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIMSURBVDiN1ZBLSJRRAIW/e//HzD+aj8axkcxHTTULi6LSIhMJ7UFQm5IgiIrMSozahkSbWrRwUaCBBLVoJYyrNmYQFdagWKHYgwpFS9IyR52YGef+t5UtgqFd0Lc8nPMtDvz3iL8Vrrbsz1nt13W2IVPz8ym78UZvJKPgCjROQn8nvFrKItcOdiA467UN0kqlE4uqe3Ym0Xqm7dF7ALlUbIWmc9DWALc3QhZAdVV4y3ejcI8yPIl3EzG0EKbPax0JBHw97S21dQBmA+w8AddroDoLZBzKSqExfKh25cmj9cfGPk8VrQqvY3ThDYvqG64rcRyztCiYsw/olYMwYIDtgHwMw7fgcDHcmx764AgpAk3HDxBaU4Lv5ziOZWJZkkRCYVjUaBDGDKhceNkHA6fhfBRGByBRuWn93thcfEXd7q35jtfD7MQICEgmFYYp0MjsSFFOpwHQD5NPYRBwlz7xB5eP5ef6TglhLFsbKuZ19LmrQWitMaRECDzxVLLr94l/8uTF8NS2ygqfx2sBYHtMrZRLdpZNWmlAf3UX+WFmEoTKghW7tm/IKy8JAqBdrS1TEo+n8HpMYvPJ7ksdzz5lFBQG/OXRwbcTFy633wmHiqt2lMp6WygMUyYnpxfuZm/uaQEwMgoKCuTHsS9DDx5Gb/b1j0Ty/IHCYJ7smoulL447yfvNzaMq0/bf8guhZrKd/Nc24AAAAABJRU5ErkJggg=="/>
+
+    <!-- Repositories -->
+    <meta name="repository-internal" content="/static/modules/repository/internal"/>
+    <meta name="repository-external" content="/static/modules/repository/external"/>
+
+    <!-- Template stylesheet -->
+    <link rel="stylesheet" href="/static/styles/default.css"/>
+
+    <!-- Application stylesheet -->
+    <style>
+        :root {
+            --theme: #FFFFFF;
+            --passive: #333344;
+            --active: #777788;
+            --coaster: #DDDDEE;
         }
+
+        body {
+            max-width: 500px;
+        }
+    </style>
+
+    <!-- Template scripts  -->
+    <script type="text/javascript" src="/static/modules/default.js"></script>
+
+    <!-- Application script -->
+    <script type="text/javascript">
+        async function validate() {
+            return await (await fetch("validate/?email=" + encodeURIComponent(UI.read("email")))).text();
+        }
+
+        function output(text) {
+            UI.write("email", text);
+        }
+
+        window.addEventListener("load", async function () {
+            await Module.import("UI");
+        });
     </script>
+
+    <!-- App Title -->
+    <title>Email Validator</title>
+
+    <!-- No Script -->
+    <noscript></noscript>
+
+    <!-- Additional -->
 </head>
-<body>
-<input id="email" type="email" placeholder="Email"><br>
-<button onclick="val().then()">Validate</button>
+<body column>
+<input medium center id="email" type="email" placeholder="Email"/>
+<button small center onclick="validate().then(output)">Validate</button>
 </body>
 </html>

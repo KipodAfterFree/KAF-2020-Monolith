@@ -11,8 +11,12 @@ if (!isset($json->email))
 
 $email = $json->email;
 
-if (file_exists(__DIR__ . "/../private/recipients/" . bin2hex($email) . ".json")) {
-    unlink(__DIR__ . "/../private/recipients/" . bin2hex($email) . ".json");
+$f = __DIR__ . "/../private/recipients/" . bin2hex($email) . ".json";
+
+if (file_exists($f)) {
+
+    unlink($f);
+
     die("Remove account OK");
 }
 

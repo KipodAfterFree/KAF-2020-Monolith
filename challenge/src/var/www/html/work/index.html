@@ -9,7 +9,7 @@
     <meta charset="UTF-8"/>
 
     <!-- App Description -->
-    <meta name="description" content="My server's home page. Check my projects out!">
+    <meta name="description" content="Automail solutions company's flagship email solution">
 
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, minimal-ui"/>
@@ -20,7 +20,7 @@
 
     <!-- Mobile Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-title" content="Shuky's!"/>
+    <meta name="apple-mobile-web-app-title" content="Enterprise Mailer"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <!-- Icons -->
@@ -40,8 +40,8 @@
     <style>
         :root {
             --theme: #FFFFFF;
-            --passive: #FFFFFF;
-            --active: #CCCCCC;
+            --passive: #333344;
+            --active: #777788;
             --coaster: #DDDDEE;
         }
 
@@ -55,42 +55,57 @@
 
     <!-- Application script -->
     <script type="text/javascript">
+        function signup() {
+            fetch("service/signup/", {
+                method: "post",
+                body: JSON.stringify({
+                    name: UI.read("signup-name"),
+                    title: UI.read("signup-title"),
+                    email: UI.read("signup-email")
+                })
+            }).then(resp => resp.text()).then(a => alert(a));
+        }
+
         window.addEventListener("load", async function () {
-
-            document.body.parentElement.style.backgroundImage = "url(images/" + (Math.floor((Math.random() * 3)) + 1) + ".webp)";
-
             await Module.import("UI");
-
-            let res = await fetch("resources/projects");
-
-            let prj = await res.json();
-
-            UI.clear("projects");
-
-            for (let result of prj) {
-                UI.find("projects").appendChild(UI.populate("project", result));
-            }
         });
     </script>
 
     <!-- App Title -->
-    <title>Shuky's!</title>
+    <title>Enterprise Mailer | Automail solutions company</title>
 
     <!-- No Script -->
     <noscript></noscript>
 
     <!-- Additional -->
-    <template id="project">
-        <div onclick="window.location = '/${project}';" style="background-color: #78b3c1; border-radius: 1vh; margin: 1vh; padding: 1vh;" row>
-            <img style="width: 10vh;" src="../${project}/.png">
-            <p medium left>${description}</p>
-        </div>
-    </template>
 </head>
 <body column>
-<p huge center>Shuky's home server</p>
-<div id="projects" column>
-    <p huge left>Loading projects</p>
+<div id="home">
+    <p large left>E.M. by Automail</p>
+    <p medium left>This service is used to mail out chains of emails with news to people.</p>
+    <p medium left>It runs once every couple of minutes and sends many emails to many recipients.</p>
+    <p small left>Based on cron!</p>
+    <p tiny center onclick="UI.view('signup')">Sign me up!</p>
+</div>
+<div hidden id="signup">
+    <p large left>E.M. by Automain</p>
+    <p medium left>Sign up:</p>
+    <input id="signup-name" placeholder="Name"/>
+    <input id="signup-title" placeholder="Title"/>
+    <input id="signup-email" placeholder="Email"/>
+    <button onclick="signup()">Sign me up!</button>
+</div>
+<div hidden id="remove">
+    <p large left>E.M. by Automain</p>
+    <p medium left>We are sad to see you go.</p>
+    <input id="remove-email" placeholder="Email"/>
+    <button onclick="remove()">Remove my account :(</button>
+</div>
+<div hidden id="todo">
+    <p>TODO: reduce overhead on index.html</p>
+    <p>TODO: run in a container</p>
+    <p>TODO: code review for service/private/mail.php</p>
+    <p>TODO: create a remove function for the service/remove/ endpoint</p>
 </div>
 </body>
 </html>

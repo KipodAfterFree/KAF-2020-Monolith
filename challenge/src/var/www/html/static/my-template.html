@@ -9,7 +9,7 @@
     <meta charset="UTF-8"/>
 
     <!-- App Description -->
-    <meta name="description" content="My server's home page. Check my projects out!">
+    <meta name="description" content="AppDescription">
 
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, minimal-ui"/>
@@ -20,7 +20,7 @@
 
     <!-- Mobile Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-title" content="Shuky's!"/>
+    <meta name="apple-mobile-web-app-title" content="AppName"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <!-- Icons -->
@@ -40,8 +40,8 @@
     <style>
         :root {
             --theme: #FFFFFF;
-            --passive: #FFFFFF;
-            --active: #CCCCCC;
+            --passive: #333344;
+            --active: #777788;
             --coaster: #DDDDEE;
         }
 
@@ -55,42 +55,19 @@
 
     <!-- Application script -->
     <script type="text/javascript">
-        window.addEventListener("load", async function () {
-
-            document.body.parentElement.style.backgroundImage = "url(images/" + (Math.floor((Math.random() * 3)) + 1) + ".webp)";
-
-            await Module.import("UI");
-
-            let res = await fetch("resources/projects");
-
-            let prj = await res.json();
-
-            UI.clear("projects");
-
-            for (let result of prj) {
-                UI.find("projects").appendChild(UI.populate("project", result));
-            }
+        window.addEventListener("load", function () {
         });
     </script>
 
     <!-- App Title -->
-    <title>Shuky's!</title>
+    <title>AppName</title>
 
     <!-- No Script -->
     <noscript></noscript>
 
     <!-- Additional -->
-    <template id="project">
-        <div onclick="window.location = '/${project}';" style="background-color: #78b3c1; border-radius: 1vh; margin: 1vh; padding: 1vh;" row>
-            <img style="width: 10vh;" src="../${project}/.png">
-            <p medium left>${description}</p>
-        </div>
-    </template>
 </head>
 <body column>
-<p huge center>Shuky's home server</p>
-<div id="projects" column>
-    <p huge left>Loading projects</p>
-</div>
+<!--App Layout-->
 </body>
 </html>

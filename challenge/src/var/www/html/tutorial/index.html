@@ -1,21 +1,90 @@
-<html>
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2020 Shuky
+ https://github.com/KipodAfterFree
+-->
+<html row lang="en">
 <head>
-    <title>Home server tutorial</title>
+    <!-- Charset -->
+    <meta charset="UTF-8"/>
+
+    <!-- App Description -->
+    <meta name="description" content="Home server setup tutorial (just like this server!)">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, minimal-ui"/>
+
+    <!-- Mobile -->
+    <meta name="theme-color" content="#FFFFFF"/>
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Mobile Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-title" content="Tutorial"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <!-- Icons -->
+    <link rel="icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIMSURBVDiN1ZBLSJRRAIW/e//HzD+aj8axkcxHTTULi6LSIhMJ7UFQm5IgiIrMSozahkSbWrRwUaCBBLVoJYyrNmYQFdagWKHYgwpFS9IyR52YGef+t5UtgqFd0Lc8nPMtDvz3iL8Vrrbsz1nt13W2IVPz8ym78UZvJKPgCjROQn8nvFrKItcOdiA467UN0kqlE4uqe3Ym0Xqm7dF7ALlUbIWmc9DWALc3QhZAdVV4y3ejcI8yPIl3EzG0EKbPax0JBHw97S21dQBmA+w8AddroDoLZBzKSqExfKh25cmj9cfGPk8VrQqvY3ThDYvqG64rcRyztCiYsw/olYMwYIDtgHwMw7fgcDHcmx764AgpAk3HDxBaU4Lv5ziOZWJZkkRCYVjUaBDGDKhceNkHA6fhfBRGByBRuWn93thcfEXd7q35jtfD7MQICEgmFYYp0MjsSFFOpwHQD5NPYRBwlz7xB5eP5ef6TglhLFsbKuZ19LmrQWitMaRECDzxVLLr94l/8uTF8NS2ygqfx2sBYHtMrZRLdpZNWmlAf3UX+WFmEoTKghW7tm/IKy8JAqBdrS1TEo+n8HpMYvPJ7ksdzz5lFBQG/OXRwbcTFy633wmHiqt2lMp6WygMUyYnpxfuZm/uaQEwMgoKCuTHsS9DDx5Gb/b1j0Ty/IHCYJ7smoulL447yfvNzaMq0/bf8guhZrKd/Nc24AAAAABJRU5ErkJggg=="/>
+    <link rel="apple-touch-icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIMSURBVDiN1ZBLSJRRAIW/e//HzD+aj8axkcxHTTULi6LSIhMJ7UFQm5IgiIrMSozahkSbWrRwUaCBBLVoJYyrNmYQFdagWKHYgwpFS9IyR52YGef+t5UtgqFd0Lc8nPMtDvz3iL8Vrrbsz1nt13W2IVPz8ym78UZvJKPgCjROQn8nvFrKItcOdiA467UN0kqlE4uqe3Ym0Xqm7dF7ALlUbIWmc9DWALc3QhZAdVV4y3ejcI8yPIl3EzG0EKbPax0JBHw97S21dQBmA+w8AddroDoLZBzKSqExfKh25cmj9cfGPk8VrQqvY3ThDYvqG64rcRyztCiYsw/olYMwYIDtgHwMw7fgcDHcmx764AgpAk3HDxBaU4Lv5ziOZWJZkkRCYVjUaBDGDKhceNkHA6fhfBRGByBRuWn93thcfEXd7q35jtfD7MQICEgmFYYp0MjsSFFOpwHQD5NPYRBwlz7xB5eP5ef6TglhLFsbKuZ19LmrQWitMaRECDzxVLLr94l/8uTF8NS2ygqfx2sBYHtMrZRLdpZNWmlAf3UX+WFmEoTKghW7tm/IKy8JAqBdrS1TEo+n8HpMYvPJ7ksdzz5lFBQG/OXRwbcTFy633wmHiqt2lMp6WygMUyYnpxfuZm/uaQEwMgoKCuTHsS9DDx5Gb/b1j0Ty/IHCYJ7smoulL447yfvNzaMq0/bf8guhZrKd/Nc24AAAAABJRU5ErkJggg=="/>
+
+    <!-- Repositories -->
+    <meta name="repository-internal" content="/static/modules/repository/internal"/>
+    <meta name="repository-external" content="/static/modules/repository/external"/>
+
+    <!-- Template stylesheet -->
+    <link rel="stylesheet" href="/static/styles/default.css"/>
+
+    <!-- Application stylesheet -->
+    <style>
+        :root {
+            --theme: #FFFFFF;
+            --passive: #333344;
+            --active: #777788;
+            --coaster: #DDDDEE;
+        }
+
+        body {
+            max-width: 500px;
+        }
+    </style>
+
+    <!-- Template scripts  -->
+    <script type="text/javascript" src="/static/modules/default.js"></script>
+
+    <!-- Application script -->
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+        });
+    </script>
+
+    <!-- App Title -->
+    <title>Tutorial</title>
+
+    <!-- No Script -->
+    <noscript></noscript>
+
+    <!-- Additional -->
 </head>
-<body>
-<h1>Creating a home server</h1>
-<p>Install ubuntu server on a computer</p>
-<code>ubuntu.com</code>
-<p>Install programs:</p>
-<code>apt-get -y install mailutils ssh php apache2 netcat</code>
-<p>Create user:</p>
-<code>useradd -s /usr/sbin/nologin mailman</code>
-<p>Create home:</p>
-<code>mkdir /home/mailman</code>
-<p>Install crontab: TODO</p>
-<p>Crucial! edit /etc/hosts and add:</p>
-<code>YOUR_FLAG_SERVER_IP     flag</code>
-<p>Test ssh to see if it works (don't forget your private key):</p>
-<code>ssh mailman@flag</code>
+<body column>
+<p huge center>Creating a home server</p>
+<p medium left>Install ubuntu server on a computer</p>
+<a text small left href="https://ubuntu.com">Download ubuntu!</a>
+<p medium left>Install programs</p>
+<p small left>apt-get -y install mailutils ssh php apache2 netcat</p>
+<p medium left>Create user</p>
+<p small left>useradd -s /usr/sbin/nologin mailman</p>
+<p medium left>Create home directory</p>
+<p small left>mkdir /home/mailman</p>
+<p medium left>Filter traffic</p>
+<p small left>ufw allow 80</p>
+<p small left>ufw allow 443</p>
+<p medium left>Install crontab</p>
+<p small left>apt-get -y install cron</p>
+<p medium left>Crucial! edit /etc/hosts and add:</p>
+<p small left>YOUR_FLAG_SERVER_IP flag</p>
+<p medium center>Test ssh to see if it works (don't forget your private key):</p>
+<p small center>ssh mailman@flag</p>
 </body>
 </html>

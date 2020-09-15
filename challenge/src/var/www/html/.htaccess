@@ -1,2 +1,2 @@
-RedirectMatch ^/$ /home/
+RedirectMatch ^/$ /projects/
 php_flag display_errors Off

@@ -1,0 +1,22 @@
+[
+  {
+    "project": "email",
+    "description": "Email validation service"
+  },
+  {
+    "project": "files",
+    "description": "My files (public for people)"
+  },
+  {
+    "project": "robots",
+    "description": "Some things for robotics teams"
+  },
+  {
+    "project": "tutorial",
+    "description": "Tutorial of how to create your home server"
+  },
+  {
+    "project": "work",
+    "description": "Confidential. Due to the virus I had to set up a testing env for work stuff"
+  }
+]
